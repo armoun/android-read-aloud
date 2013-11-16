@@ -6,9 +6,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Use any app's Share action to send text to Read Aloud and have it read out loud. Or type some text into the box below."
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
@@ -30,24 +30,29 @@
         android:layout_alignLeft="@+id/textView" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/editText"
-        android:layout_below="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:inputType="textLongMessage|textCapSentences|textAutoCorrect"
+        android:hint="Text to speak..."
+        android:imeActionLabel="Speak"
+        android:imeOptions="actionSend"
         android:layout_alignLeft="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:lines="3" />
+        android:layout_toStartOf="@+id/button"
+        android:layout_below="@+id/textView"
+        android:layout_alignWithParentIfMissing="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Speak text"
         android:id="@+id/button"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:onClick="pressSpeakButton"
-        android:enabled="false" />
+        android:enabled="false"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+         />
 </RelativeLayout>

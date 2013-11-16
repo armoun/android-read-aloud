@@ -69,6 +69,7 @@ public class ReadActivity extends RoboActivity {
         HashMap<String,String> options = new HashMap<String, String>();
         options.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "readId");
         tts.speak(string, TextToSpeech.QUEUE_FLUSH, options);
+//        Log.i(TAG, "Speak: " + string);
         text.setText(R.string.reading);
     }
 
