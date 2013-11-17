@@ -12,6 +12,8 @@ repositories {
     mavenCentral()
 }
 
+apply from: '../signingConfigs.gradle'
+
 android {
     compileSdkVersion 19
     buildToolsVersion "19.0.0"
@@ -20,12 +22,15 @@ android {
         minSdkVersion 14
         targetSdkVersion 19
     }
+
     buildTypes {
         release {
-            runProguard true
+            runProguard false
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig signingConfigs.myConfig
         }
     }
+
     productFlavors {
         defaultFlavor {
             proguardFile 'proguard-rules.txt'
@@ -35,5 +40,4 @@ android {
 
 dependencies {
 	compile 'org.roboguice:roboguice:2.0'
-    compile 'com.android.support:support-v4:+'
 }
